@@ -1,0 +1,22 @@
+{
+    "name": "evgeniyrru/yii2-slick",
+    "description": "Yii2 extension for Slick Carousel",
+    "license": "MIT",
+    "keywords": ["yii", "extension", "widget", "carousel"],
+    "type": "yii2-extension",
+    "authors": [
+        {
+            "name": "Evgeniy Chernyshev",
+            "email": "EvgeniyRRU@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/slick-carousel": "*" 
+    },
+    "autoload": {
+        "psr-4": {
+            "evgeniyrru\\yii2slick\\": ""
+        }
+    }
+}
