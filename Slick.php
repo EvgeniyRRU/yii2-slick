@@ -2,8 +2,8 @@
 
 namespace evgeniyrru\yii2slick;
 
-use yii\base\widget;
-use yii\helpers\html;
+use yii\base\Widget;
+use yii\helpers\Html;
 use yii\base\Exception;
 use yii\helpers\Json;
 
