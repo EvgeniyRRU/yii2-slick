@@ -11,14 +11,14 @@ use yii\web\AssetBundle;
 
 class SlickAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/slick-carousel/';
+    public $sourcePath = '@bower/slick-carousel/slick/';
 
     public $css = [
-        'slick/slick.css',
+        'slick.css',
     ];
 
     public $js = [
-        'slick/slick.min.js',
+        'slick.min.js',
     ];
 
     public $depends = [
