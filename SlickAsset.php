@@ -15,6 +15,7 @@ class SlickAsset extends AssetBundle
 
     public $css = [
         'slick.css',
+        'slick-theme.css',
     ];
 
     public $js = [
