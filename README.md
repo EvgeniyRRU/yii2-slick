@@ -68,6 +68,71 @@ Something html here
  
 ```
 
+If you want to use *breakpoints* feature, type something like this:
+
+```PHP
+<?php
+
+use evgeniyrru\yii2slick\Slick;
+use use yii\web\JsExpression;
+
+<?=Slick::widget([
+
+        // Widget configuration. See example above.
+        
+        // settings for js plugin
+        // @see http://kenwheeler.github.io/slick/#settings
+        'clientOptions' => [
+                'dots'     => true,
+                'speed'    => 300,
+                'autoplay' => true,
+                'infinite' => false,
+                'slidesToShow' => 4,
+                'slidesToScroll' => 4,
+                'responsive' => [
+                    [
+                        'breakpoint' => 1200,
+                        'settings' => [
+                            'slidesToShow' => 4,
+                            'slidesToScroll' => 4,
+                            'infinite' => true,
+                            'autoplay' => true,
+                            'dots' => true,
+                        ],
+                    ],
+                    [
+                        'breakpoint' => 992,
+                        'settings' => [
+                            'slidesToShow' => 4,
+                            'slidesToScroll' => 4,
+                            'infinite' => true,
+                            'autoplay' => true,
+                            'dots' => true,
+                        ],
+                    ],
+                    [
+                        'breakpoint' => 768,
+                        'settings' => [
+                            'slidesToShow' => 2,
+                            'slidesToScroll' => 2,
+                            'infinite' => true,
+                            'autoplay' => true,
+                            'dots' => true,
+                        ],
+                    ],
+                    [
+                        'breakpoint' => 480,
+                        'settings' => 'unslick', // Destroy carousel, if screen width less than 480px
+                    ],
+
+                ],
+        ],
+        
+    ]); ?>
+
+?>
+```
+
 ## Issues
 
 If some problems occurred, you can create [issue](https://github.com/EvgeniyRRU/yii2-slick/issues).
