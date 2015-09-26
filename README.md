@@ -5,21 +5,20 @@ Yii2 extension for jQuery Slick Carousel plugin. See more here: [http://kenwheel
  
 ## Installation
  
-You can get this extension through [Composer](https://getcomposer.org/download/).
+You can get this extension through [Composer](https://getcomposer.org/download/). There are two way:
  
-Either run in terminal
- 
+1. Either run in terminal:
 ```Shell
 $ php composer.phar require "evgeniyrru/yii2-slick" "*"
 ```
- 
-or add
- 
+2. Or add:
 ```JSON
 "evgeniyrru/yii2-slick" : "*"
 ```
- 
-to the *require* section of your application's ```composer.json``` file.
+to the *require* section of your application's ```composer.json``` file. Then run in terminal composer install command:
+```Shell
+$ php composer.phar install
+```
  
 ## Usage
  
@@ -30,7 +29,7 @@ This is a common way to run Yii2 widget.
 <?php
  
 use evgeniyrru\yii2slick\Slick;
-use use yii\web\JsExpression;
+use yii\web\JsExpression;
 ?>
  
 Something html here
@@ -74,7 +73,7 @@ If you want to use *breakpoints* feature, type something like this:
 <?php
 
 use evgeniyrru\yii2slick\Slick;
-use use yii\web\JsExpression;
+use yii\web\JsExpression;
 
 <?=Slick::widget([
 
