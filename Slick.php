@@ -6,6 +6,7 @@ use yii\base\Widget;
 use yii\helpers\Html;
 use yii\base\Exception;
 use yii\helpers\Json;
+use yii\web\View;
 
 /**
  * This is a wrapper for Slick Carousel plugin
@@ -21,6 +22,12 @@ class Slick extends Widget
      * @var array options to populate Slick jQuery object
      */
     public $clientOptions = [];
+
+    /**
+     * @var integer position for inclusion javascript widget code to web page
+     * @link http://www.yiiframework.com/doc-2.0/yii-web-view.html#registerJs()-detail
+     */
+    public $jsPosition = View::POS_READY;
 
     /**
      * @var array HTML attributes to render on the container
@@ -90,7 +97,7 @@ class Slick extends Widget
 
         $js[] = "jQuery('#$id').slick($options);";
 
-        $view->registerJs(implode(PHP_EOL, $js));
+        $view->registerJs(implode(PHP_EOL, $js), $this->jsPosition);
     }
 
     /**

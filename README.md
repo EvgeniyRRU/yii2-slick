@@ -1,12 +1,12 @@
 yii2-slick
 ==========
- 
+
 Yii2 extension for jQuery Slick Carousel plugin. See more here: [http://kenwheeler.github.io/slick/](http://kenwheeler.github.io/slick/).
- 
+
 ## Installation
- 
+
 You can get this extension through [Composer](https://getcomposer.org/download/). There are two way:
- 
+
 1. Either run in terminal:
 ```Shell
 $ php composer.phar require "evgeniyrru/yii2-slick" "*"
@@ -19,29 +19,33 @@ to the *require* section of your application's ```composer.json``` file. Then ru
 ```Shell
 $ php composer.phar install
 ```
- 
+
 ## Usage
- 
+
 This is a common way to run Yii2 widget.
- 
+
 ```PHP
- 
+
 <?php
- 
+
 use evgeniyrru\yii2slick\Slick;
 use yii\web\JsExpression;
 ?>
- 
+
 Something html here
- 
+
 <?=Slick::widget([
 
         // HTML tag for container. Div is default.
         'itemContainer' => 'div',
-        
+
         // HTML attributes for widget container
         'containerOptions' => ['class' => 'container'],
-        
+
+        // Position for inclusion js-code
+        // see more here: http://www.yiiframework.com/doc-2.0/yii-web-view.html#registerJs()-detail
+        'jsPosition' => yii\web\View::POS_READY,
+
         // Items for carousel. Empty array not allowed, exception will be throw, if empty 
         'items' => [
             Html::img('/cat_gallery/cat_001.png'),
@@ -50,10 +54,10 @@ Something html here
             Html::img('/cat_gallery/cat_004.png'),
             Html::img('/cat_gallery/cat_005.png'),
         ],
-        
+
         // HTML attribute for every carousel item
         'itemOptions' => ['class' => 'cat-image'],
-        
+
         // settings for js plugin
         // @see http://kenwheeler.github.io/slick/#settings
         'clientOptions' => [
@@ -62,9 +66,9 @@ Something html here
             // note, that for params passing function you should use JsExpression object
             'onAfterChange' => new JsExpression('function() {console.log("The cat has shown")}'),
         ],
-        
+
     ]); ?>
- 
+
 ```
 
 If you want to use *breakpoints* feature, type something like this:
@@ -78,7 +82,7 @@ use yii\web\JsExpression;
 <?=Slick::widget([
 
         // Widget configuration. See example above.
-        
+
         // settings for js plugin
         // @see http://kenwheeler.github.io/slick/#settings
         'clientOptions' => [
@@ -126,7 +130,7 @@ use yii\web\JsExpression;
 
                 ],
         ],
-        
+
     ]); ?>
 
 ?>
