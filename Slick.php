@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\base\Exception;
 use yii\helpers\Json;
 use yii\web\View;
+use yii\web\JsExpression;
 
 /**
  * This is a wrapper for Slick Carousel plugin
@@ -17,7 +18,10 @@ use yii\web\View;
  */
 class Slick extends Widget
 {
-
+    /**
+     * @var array options to call an event such as "init","destroy",etc..
+     */
+    public $events = [];
     /**
      * @var array options to populate Slick jQuery object
      */
@@ -90,7 +94,7 @@ class Slick extends Widget
         SlickAsset::register($view);
 
         $options = Json::encode($this->clientOptions);
-
+      
         $id = $this->containerOptions['id'];
 
         $js[] = ";";
@@ -98,6 +102,10 @@ class Slick extends Widget
         $js[] = "jQuery('#$id').slick($options);";
 
         $view->registerJs(implode(PHP_EOL, $js), $this->jsPosition);
+        
+        foreach ($this->events as $key => $value) {
+        	 $view->registerJs( new JsExpression("$('#".$this->id."').on('"$key"',"$value");", $this->jsPosition));
+        }
     }
 
     /**
