@@ -106,7 +106,7 @@ class Slick extends Widget
         $view->registerJs(implode(PHP_EOL, $js), $this->jsPosition);
 
         foreach ($this->events as $key => $value) {
-            $view->registerJs(new JsExpression("$('#".$this->id."').on('"$key"', "$value");", $this->jsPosition));
+            $view->registerJs(new JsExpression("$('#".$this->id."').on('".$key."', ".$value.");", $this->jsPosition));
         }
     }
 
